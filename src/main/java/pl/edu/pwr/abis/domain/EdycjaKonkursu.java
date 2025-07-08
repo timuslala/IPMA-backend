@@ -1,9 +1,11 @@
 package pl.edu.pwr.abis.domain;
 
+import java.util.Set;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
+import pl.edu.pwr.abis.domain.enums.StanEdycjiKonkursu;;
 @Entity
 @Getter
 @Setter
@@ -25,7 +27,7 @@ public class EdycjaKonkursu{
     private CzlonekBiuraNagrody przewodniczacyBiuraNagrody;
     @ManyToMany()
     private Set<Jury> skladJury;
-    @ManyToOne(optional = true, mappedBy = "edycjaKonkursu")
+    @ManyToOne(optional = true)
     private Jury przewodniczacyJury;
     @OneToOne(optional = true, mappedBy = "edycjaKonkursu", cascade = CascadeType.REMOVE)
     private Plik listaFinalistow;
@@ -33,7 +35,7 @@ public class EdycjaKonkursu{
     private static Plik regulamin;
     @OneToOne(optional = true, mappedBy = "edycjaKonkursu", cascade = CascadeType.REMOVE)
     private Plik wyniki;
-    @OneToMany(optional = true, mappedBy = "edycjaKonkursu")
+    @OneToMany(mappedBy = "edycjaKonkursu")
     private Set<Wydarzenie> harmonogram;
     @ManyToMany(mappedBy = "edycjaKonkursu")
     private Set<KategoriaProjektu> kategorieProjektow;

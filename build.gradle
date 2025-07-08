@@ -10,7 +10,6 @@ plugins {
     id "org.liquibase.gradle"
     // jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
 }
-
 group = "pl.edu.pwr.abis"
 version = "0.0.1-SNAPSHOT"
 

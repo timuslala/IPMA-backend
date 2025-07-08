@@ -3,6 +3,8 @@ package pl.edu.pwr.abis.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.AccessLevel;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Getter
@@ -13,12 +15,12 @@ public class Plik {
     private Long id;
 
     @NotNull
-    @Setter(access = AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     private Data dataUtworzenia;
     @NotNull
     private String nazwa;
     @NotNull
-    @Setter(access = AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     private String typ;
     @NotNull
     @Column(unique = true)

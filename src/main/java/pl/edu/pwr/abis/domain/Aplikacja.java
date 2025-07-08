@@ -18,11 +18,12 @@ public class Aplikacja{
     private Data dataZlozenia;
     @NotNull
     private StanAplikacji stan;
-    @Column(optional = true)
+    @Column(nullable = true)
     private String powodOdrzucenia;
     @NotNull
-    private StanOplaty stanOplaty;
-    @Column(optional = true)
+    @Enumerated(EnumType.STRING)
+    private StanOpłaty stanOplaty;
+    @Column(nullable = true)
     private WynikAplikacji wynik;
     @NotNull
     private String nazwaProjektu;
@@ -40,9 +41,9 @@ public class Aplikacja{
     private Boolean czyZgodnyZDefinicja;
     @NotNull
     private Boolean czyUkonczony;
-    @Column(optional = true)
+    @Column(nullable = true)
     private Data dataZakonczenia;
-    @Column(optional = true)
+    @Column(nullable = true)
     private static FazaOceny fazaOceny;
     private Double sredniaOcenaJury;
     @ManyToOne()

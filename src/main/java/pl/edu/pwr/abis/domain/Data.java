@@ -1,7 +1,7 @@
 package pl.edu.pwr.abis.domain;
 
 class Data{
-    public integer rok;
-    public integer miesiac;
-    public integer dzien;
+    public Integer rok;
+    public Integer miesiac;
+    public Integer dzien;
 }

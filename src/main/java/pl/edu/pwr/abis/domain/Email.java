@@ -7,13 +7,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Osoba {
+public class Email {
     @Id
     @GeneratedValue
     private Long id;
 
     
-    private Strimg temat;
+    private String temat;
     private String tresc;
 
 }

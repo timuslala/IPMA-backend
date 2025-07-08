@@ -3,7 +3,10 @@ package pl.edu.pwr.abis.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
+import jakarta.validation.constraints.NotNull;
+import pl.edu.pwr.abis.domain.enums.StanDanych;
+import java.util.List;
+import java.util.Set;
 @Entity
 @Getter
 @Setter
@@ -29,8 +32,8 @@ public class Organizacja {
     private Osoba zarzadca;
     @OneToOne()
     private Przedstawiciel przedstawiciel;
-    @OneToMany(mappedBy = "organizacja", optional = true)
+    @OneToMany(mappedBy = "organizacja")
     private Set<Aplikacja> aplikacjeZainicjowane;
-    @OneToMany(mappedBy = "organizacja", optional = true)
+    @OneToMany(mappedBy = "organizacja")
     private List<Aplikacja> aplikacje;
 }
