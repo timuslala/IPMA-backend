@@ -1,5 +1,7 @@
 package pl.edu.pwr.abis.domain;
 
+import java.util.Set;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +20,7 @@ public class Pytanie {
     @Column(unique = true)
     private String odpowiedz;
     @OneToMany(mappedBy = "pytanie", cascade = CascadeType.REMOVE)
-    private Plik zalacznik;
-
+    private Set<Plik> zalacznik;
+    @ManyToOne
+    private Aplikacja aplikacja;
 }

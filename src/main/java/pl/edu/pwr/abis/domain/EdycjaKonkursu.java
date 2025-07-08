@@ -20,6 +20,11 @@ public class EdycjaKonkursu{
     private Integer minCzasTrwaniaProjektu;
     private Integer minLiczbaPodwykonawcow;
     private Integer maxCzasDoUkonczeniaProjektuMiesiace;
+    @AttributeOverrides({
+        @AttributeOverride(name = "rok", column = @Column(name = "planowany_rok")),
+        @AttributeOverride(name = "miesiac", column = @Column(name = "planowany_miesiac")),
+        @AttributeOverride(name = "dzien", column = @Column(name = "planowany_dzien"))
+    })
     private Data planowanaDataZlozeniaIO;
     @ManyToMany()
     private Set<CzlonekBiuraNagrody> skladBiuraNagrody;
@@ -37,6 +42,6 @@ public class EdycjaKonkursu{
     private Plik wyniki;
     @OneToMany(mappedBy = "edycjaKonkursu")
     private Set<Wydarzenie> harmonogram;
-    @ManyToMany(mappedBy = "edycjaKonkursu")
+    @ManyToMany()
     private Set<KategoriaProjektu> kategorieProjektow;
 }

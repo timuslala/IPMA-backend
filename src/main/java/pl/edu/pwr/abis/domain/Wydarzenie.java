@@ -19,6 +19,7 @@ public class Wydarzenie {
     @NotNull
     private TypWydarzenia typ;
     @NotNull
+    @Embedded
     private Data data;
     @ManyToOne()
     private EdycjaKonkursu edycjaKonkursu;

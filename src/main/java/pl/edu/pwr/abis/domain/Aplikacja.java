@@ -14,7 +14,12 @@ import pl.edu.pwr.abis.domain.enums.*;
 public class Aplikacja{
     @Id
     private Integer numerAplikacji;
-    @NotNull    
+    @NotNull
+    @AttributeOverrides({
+        @AttributeOverride(name = "rok", column = @Column(name = "data_zlozenia_rok")),
+        @AttributeOverride(name = "miesiac", column = @Column(name = "data_zlozenia_miesiac")),
+        @AttributeOverride(name = "dzien", column = @Column(name = "data_zlozenia_dzien"))
+    })
     private Data dataZlozenia;
     @NotNull
     private StanAplikacji stan;
@@ -42,25 +47,30 @@ public class Aplikacja{
     @NotNull
     private Boolean czyUkonczony;
     @Column(nullable = true)
+    @AttributeOverrides({
+        @AttributeOverride(name = "rok", column = @Column(name = "data_zakonczenia_rok")),
+        @AttributeOverride(name = "miesiac", column = @Column(name = "data_zakonczenia_miesiac")),
+        @AttributeOverride(name = "dzien", column = @Column(name = "data_zakonczenia_dzien"))
+    })
     private Data dataZakonczenia;
     @Column(nullable = true)
     private static FazaOceny fazaOceny;
     private Double sredniaOcenaJury;
     @ManyToOne()
     private Osoba osoba;
-    @OneToOne(optional = true, cascade = CascadeType.REMOVE)
+    @OneToOne(optional = true, cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private Plik listReferencyjny;
-    @OneToMany(mappedBy = "aplikacja", cascade = CascadeType.REMOVE)
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private Plik[] zdjecia;
-    @OneToMany(mappedBy = "aplikacja", cascade = CascadeType.REMOVE)
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private Plik[] logotypy;
-    @OneToOne(optional = true, cascade = CascadeType.REMOVE)
+    @OneToOne(optional = true, cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private Plik film;
-    @OneToOne(optional = true, cascade = CascadeType.REMOVE)
+    @OneToOne(optional = true, cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private Plik oswiadczenieAplikanta;
-    @OneToOne(optional = true, cascade = CascadeType.REMOVE)
+    @OneToOne(optional = true, cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private Plik oswiadczenieInicjatora;
-    @OneToMany(mappedBy = "aplikacja", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "aplikacja", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private Pytanie[] pytanie;
     @OneToOne(optional = true, mappedBy = "aplikacja")
     private RaportAplikacyjny[] raportAplikacyjny;

@@ -1,7 +1,14 @@
 package pl.edu.pwr.abis.domain;
 
-class Data{
-    public Integer rok;
-    public Integer miesiac;
-    public Integer dzien;
+import jakarta.persistence.Embeddable;
+import lombok.Getter;
+import lombok.Setter;
+
+@Embeddable
+@Getter
+@Setter
+public class Data {
+    private Integer rok;
+    private Integer miesiac;
+    private Integer dzien;
 }

@@ -27,5 +27,7 @@ public class Plik {
     private String sciezka;
     @OneToOne(optional = true)
     private EdycjaKonkursu edycjaKonkursu;
+    @ManyToOne(optional = true)
+    private Pytanie pytanie;
 
 }

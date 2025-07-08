@@ -28,6 +28,6 @@ public class Osoba {
     @OneToMany(mappedBy = "osoba")
     private Set<Aplikacja> aplikacja;
     private String stanowiskoZarzadcy;
-    @OneToOne(optional = true, mappedBy = "osoba")
+    @OneToOne(optional = true, mappedBy = "zarzadca")
     private Organizacja organizacja;
 }

@@ -19,7 +19,9 @@ logging:
     tech.jhipster: DEBUG
     org.hibernate.SQL: DEBUG
     pl.edu.pwr.abis: DEBUG
-
+    org.hibernate.orm.jdbc.bind: TRACE
+    org.hibernate.orm: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
 spring:
   devtools:
     restart:
